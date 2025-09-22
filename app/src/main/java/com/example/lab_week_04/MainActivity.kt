@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 
+
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,6 +12,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.navigation.ui.NavigationUI
 
 
 class MainActivity : AppCompatActivity() {
@@ -42,8 +44,12 @@ class MainActivity : AppCompatActivity() {
             .setupWithNavController(navController)
     }
 
+
+
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+        return NavigationUI.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+
 }
